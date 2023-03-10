@@ -1,0 +1,7 @@
+DATOS DE SUPER USUARIO
+usuario: admin
+password: admin
+
+DATOS DE BASE DE DATOS MYSQL
+
+contraseña: gestoria

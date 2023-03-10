@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Creacion de Autor
+{% endblock titulo %}
+</head>
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% else %}
+            <label>Nombres</label>
+            <input type="text" name="nombre">
+            <label>Apellidos</label>
+            <input type="text" name="apellidos">
+            <label>Nacionalidad</label>
+            <input type="text" name="nacionalidad">
+            <label>Descripcion</label>
+            <input type="text" name="descripcion">
+            <button type="Submit">Crear</button>
+        {% endif %}
+    </form>
+{% endblock body %}
