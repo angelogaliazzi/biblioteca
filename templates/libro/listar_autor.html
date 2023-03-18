@@ -7,15 +7,15 @@
 {% block body %}
 
     {% if autores %}
-        <table>
-            <thead>
+        <table class ="table table-striped">
+            <thead class="thead-ligth">
             <tr>
-                <th>#</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Nacionalidad</th>
-                <th>Descripcion</th>
-                <th>Opciones</th>
+                <th scoop="col">#</th>
+                <th scoop="col">Nombres</th>
+                <th scoop="col">Apellidos</th>
+                <th scoop="col">Nacionalidad</th>
+                <th scoop="col">Descripcion</th>
+                <th scoop="col">Opciones:</th>
             </tr>
             </thead>
             <tbody>
@@ -27,8 +27,8 @@
                     <td>{{ autor.nacionalidad }}</td>
                     <td>{{ autor.descripcion }}</td>
                     <td>
-                        <a href="{% url 'libro:editar_autor' autor.id %}">Editar</a>
-                        <a href="{% url 'libro:eliminar_autor' autor.id %}">Eliminar</a>
+                        <a href="{% url 'libro:editar_autor' autor.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'libro:eliminar_autor' autor.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %}

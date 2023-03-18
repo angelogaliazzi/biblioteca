@@ -18,7 +18,7 @@ def crearautor(request):
         desc=request.POST.get('descripcion')
         autor=Autor(nombre=nom, apellidos=ape, nacionalidad=nacio, descripcion=desc)
         autor.save()
-        return  redirect('index')
+        return redirect('libro:index')
     return render(request, 'libro/crear_autor.html')
 
 
