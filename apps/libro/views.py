@@ -7,6 +7,7 @@ from django.views.generic import TemplateView, ListView
 
 # Create your views here.
 
+# Templateview me permite renderizar templates. Es una vista basada en clase
 class Inicio(TemplateView):
     template_name = 'index.html'
 
@@ -20,19 +21,15 @@ def crearautor(request):
         desc = request.POST.get('descripcion')
         autor = Autor(nombre=nom, apellidos=ape, nacionalidad=nacio, descripcion=desc)
         autor.save()
-        return redirect('libro:index')
+        return redirect('libro:listar_autor')
     return render(request, 'libro/crear_autor.html')
 
 
-def listarautor(request):
-    autores = Autor.objects.filter(estado=True).order_by('id')
-    return render(request, 'libro/listar_autor.html', {'autores': autores})
-
-
+# List view me permite listar contenido de modelos. Es una vista basada en clases.
 class ListadoAutor(ListView):
     model = Autor
     template_name = 'libro/listar_autor.html'
-    context_object_name = 'autores'
+    context_object_name = 'autores'  # en el html cuando hago el if pongo este nombre "if autores" hace x cosa
     queryset = Autor.objects.filter(estado=True).order_by('id')
 
 
